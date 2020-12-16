@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene >
+            <a-assets>
+                <img id="waves" src="waves.jfif">
+                <img id="sand" src="sand.jpg">
+                <a-asset-item id="model" src="model.gltf"></a-asset-item>
+                <audio id="ocean" src="ocean.mp3"></audio>
+              </a-assets>
+
+
+            <a-sphere color="darkred" position="1 0 -50" radius="5"></a-sphere>
+            <a-entity light=" type: directional; color: darkred; intensity: 1; castShadow: true" position="0.6 1.8 -33"></a-entity>
+            <a-entity light=" type: ambient; color: #CCC; intensity: 1; castShadow: true" position="1 20 -50"></a-entity>
+
+
+            <a-sky color="darkorange"></a-sky>
+            <a-plane src="#waves" height="100" width="100" rotation="-90 0 0"
+              sound="src: #ocean; loop: true; autoplay: true; distanceModel: exponential; rolloffFactor: 1.5;"
+            ></a-plane>
+
+            <a-cylinder  height="0.5" radius="5" position="-5 0 -10" material="src: sand.jpg; roughness: 0.5; metalness: 0.3" shadow="receive: true"></a-cylinder>
+
+            <a-cylinder color="brown" height="5" radius="0.2" position="-5 0 -10" shadow="receive: false"></a-cylinder>
+            <a-sphere color="darkgreen" position="-5 3 -10"></a-sphere>
+
+            <a-gltf-model src="#model" position="3 0.5 -5" rotation="30 -50 70" 
+            animation="property: rotation; loop: true; from: 20 360 0; to: 30 -50 70; dur: 2000" 
+            ></a-gltf-model>
+
+            <a-camera>
+                <a-cursor></a-cursor>
+              </a-camera>
+
+
+            
+           
+
+        </a-scene>
+
+    </body>
+</html>
